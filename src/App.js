@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ProductList from "../src/components/ProductList/ProductList";
+import Nav from "../src/components/Nav/Nav";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+
+class App extends React.Component {
+  state = {
+    productDetails: [],
+  };
+  componentDidMount() {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((products) => this.setState({ productDetails: products }));
+  }
+  render() {
+    return (
+      <div>
+        <Nav />
+        <ProductList productsdetales={this.state.productDetails} />
+      </div>
+    );
+  }
 }
 
 export default App;

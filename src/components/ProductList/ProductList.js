@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Product from "../Product/Product";
 import SaleCountDown from "../SaleCountDown/SaleCountDown";
 
@@ -7,10 +7,15 @@ class ProductList extends React.Component {
 
   saleOver = () => {
     this.setState(({ sale }) => ({ sale: !sale }));
-    console.log(this.state.sale);
   };
   render() {
-    const listItems = this.props.productsdetales.map((product) => (
+    const categoryList = this.props.productsdetales.filter((product) =>
+      this.props.newcategory === "all"
+        ? true
+        : product.category === this.props.newcategory
+    );
+
+    const listItems = categoryList.map((product) => (
       <Product
         onSale={this.state.sale}
         key={product.id}

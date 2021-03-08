@@ -2,6 +2,9 @@ import React from "react";
 
 class Nav extends React.Component {
   render() {
+    const options = this.props.categories.map((option) => (
+      <option value={option}>{option}</option>
+    ));
     return (
       <nav className="product-filter">
         <h1>Products</h1>
@@ -9,15 +12,12 @@ class Nav extends React.Component {
         <div className="sort">
           <div className="collection-sort">
             <label>Filter by:</label>
-            <select>
-              <option value="/">All Jackets</option>
-              <option value="/">2016</option>
-              <option value="/">jacket</option>
-              <option value="/">Jackets</option>
-              <option value="/">layers</option>
-              <option value="/">Obermeyer</option>
-              <option value="/">Roxy</option>
-              <option value="/">womens</option>
+            <select
+              onChange={(e) => {
+                this.props.setCategory(e.target.value);
+              }}
+            >
+              {options}
             </select>
           </div>
 

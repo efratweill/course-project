@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import sale from "./sale.jpg";
 import nosale from "./nosale.jpg";
 
@@ -7,10 +7,10 @@ class Product extends React.Component {
     return (
       <div className="product-card">
         {this.props.price > 50 && this.props.onSale && (
-          <img src={sale} width="50%" height="auto" />
+          <img src={sale} width="50%" height="auto" alt="On sale" />
         )}
         {this.props.price < 50 && this.props.onSale && (
-          <img src={nosale} width="50%" height="auto" />
+          <img src={nosale} width="50%" height="auto" alt="Not on sale" />
         )}
         <div className="product-image">
           <img src={this.props.image} />

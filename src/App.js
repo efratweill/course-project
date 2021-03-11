@@ -1,46 +1,46 @@
 import React from "react";
-import ProductList from "../src/components/ProductList/ProductList";
-import Nav from "../src/components/Nav/Nav";
-
+import Home from "./pages/Home/Home";
 import "./App.css";
+import About from "./pages/About/About";
+import Admin from "./pages/Admin/Admin";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-const groupBy = (xs, key) =>
-  xs.reduce((rv, x) => {
-    rv[x[key]] = true || [];
-    return rv;
-  }, {});
+const App = () => {
+  return (
+    <div>
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/Admin">Admin</Link>
+              </li>
+            </ul>
+          </nav>
 
-class App extends React.Component {
-  state = {
-    productDetails: [],
-    category: "all",
-  };
-
-  componentDidMount() {
-    fetch("https://fakestoreapi.com/products")
-      .then((response) => response.json())
-      .then((products) => {
-        this.setState(() => ({ productDetails: products }));
-      });
-  }
-
-  setCategory = (newCategory) => {
-    this.setState(() => ({ category: newCategory }));
-  };
-
-  render() {
-    const cat = Object.keys(groupBy(this.state.productDetails, "category"));
-    cat.push("all");
-    return (
-      <div>
-        <Nav categories={cat} setCategory={this.setCategory} />
-        <ProductList
-          newcategory={this.state.category}
-          productsdetales={this.state.productDetails}
-        />
-      </div>
-    );
-  }
-}
+          {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/Admin">
+              <Admin />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </div>
+  );
+};
 
 export default App;

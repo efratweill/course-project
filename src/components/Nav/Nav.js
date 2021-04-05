@@ -1,13 +1,14 @@
 import React from "react";
+import MySlider from "../slider/Slider";
 
 const Nav = ({ categories, changeCategory }) => {
   const options = categories.map((option) => (
     <option value={option}>{option}</option>
   ));
+
   return (
     <nav className="product-filter">
       <h1>Products</h1>
-
       <div className="sort">
         <div className="collection-sort">
           <label>Filter by:</label>
@@ -34,6 +35,9 @@ const Nav = ({ categories, changeCategory }) => {
           </select>
         </div>
       </div>
+      <>
+        <MySlider />
+      </>
     </nav>
   );
 };

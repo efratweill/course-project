@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home";
 import "./App.css";
 import About from "./pages/About/About";
 import Admin from "./pages/Admin/Admin";
+import Productpage from "./pages/Productpage/Productpage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
             <Route path="/Admin">
               <Admin />
             </Route>
+            <Route path="/Products/:ProductId" component={Productpage}></Route>
             <Route path="/">
               <Home />
             </Route>

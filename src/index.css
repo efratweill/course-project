@@ -211,6 +211,8 @@ label {
 .product-card {
   display: flex;
   flex-direction: column;
+  text-decoration: none !important;
+  margin: 10px;
 
   padding: 2%;
   flex: 1 16%;
@@ -243,6 +245,7 @@ label {
 @media (max-width: 600px) {
   .product-card {
     flex: 1 46%;
+    margin: 10px;
   }
 }
 

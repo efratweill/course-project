@@ -20,6 +20,7 @@ const ProductList = ({ productsdetales, newcategory }) => {
       image={product.image}
       price={product.price}
       title={product.title}
+      id={product.id}
     />
   ));
 

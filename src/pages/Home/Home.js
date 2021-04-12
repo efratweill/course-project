@@ -15,7 +15,7 @@ function Home() {
   const [category, setCategory] = useState("all");
 
   const fetchProductDetails = () => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("http://localhost:8000/products")
       .then((response) => response.json())
       .then((products) => {
         setProductdetails(products);

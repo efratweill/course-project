@@ -9,12 +9,12 @@ const Product = ({ price, onSale, image, title, id }) => {
   return (
     <div style={{ backgroundColor: theme.background }} className="product-card">
       <Link to={`/products/${id}`}>
-        {price > 50 && onSale && (
+        {/* {price > 50 && onSale && (
           <img src={sale} width="50%" height="auto" alt="On sale" />
         )}
         {price < 50 && onSale && (
           <img src={nosale} width="50%" height="auto" alt="Not on sale" />
-        )}
+        )} */}
         <div className="product-image">
           <img src={image} />
         </div>

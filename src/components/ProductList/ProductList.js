@@ -16,11 +16,11 @@ const ProductList = ({ productsdetales, newcategory }) => {
   const listItems = categoryList.map((product) => (
     <Product
       onSale={sale}
-      key={product.id}
+      key={product._id}
       image={product.image}
       price={product.price}
       title={product.title}
-      id={product.id}
+      id={product._id}
     />
   ));
 
